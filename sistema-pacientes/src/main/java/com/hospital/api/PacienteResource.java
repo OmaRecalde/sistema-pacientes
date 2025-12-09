@@ -11,8 +11,24 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Recurso REST para operaciones CRUD de Pacientes
- * Path base: /api/pacientes
+ * API REST para gestión de pacientes del hospital.
+ *
+ * Endpoint base: /api/pacientes
+ *
+ * Operaciones disponibles:
+ * - GET    /api/pacientes          → Lista todos los pacientes
+ * - GET    /api/pacientes/{id}     → Obtiene un paciente específico
+ * - POST   /api/pacientes          → Crea un nuevo paciente
+ * - PUT    /api/pacientes/{id}     → Actualiza datos de un paciente
+ * - PUT    /api/pacientes/{id}/estado → Activa/desactiva un paciente
+ *
+ * Validaciones implementadas:
+ * - Cédula ecuatoriana con algoritmo de verificación
+ * - Campos obligatorios (nombre, cédula, correo, edad, dirección)
+ * - Unicidad de cédula en el sistema
+ * - Edad mayor a 0
+ *
+ * Respuestas JSON con códigos HTTP estándar (200, 201, 400, 404, 409, 500)
  */
 @Path("/pacientes")
 @Produces(MediaType.APPLICATION_JSON)
